@@ -2,6 +2,7 @@ package com.practice.collections.questions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayListUtilityMethods {
@@ -26,7 +27,6 @@ public class ArrayListUtilityMethods {
 
 		// fetch the sublist from a given list
 		fetchSubListFromList();
-
 	}
 
 	private static void setArrayListCapacity() {
