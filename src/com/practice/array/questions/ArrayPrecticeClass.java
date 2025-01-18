@@ -1,86 +1,55 @@
 package com.practice.array.questions;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ArrayPrecticeClass {
 
 	public static void main(String[] args) {
+		int range = 12;
+		Integer[] arr = { 1, 2, 4, 5, 3, 9, 8, 10, 12, 15, 14 };
 
-		int[] arr = { 4, 5, 7, 11, 9, 13, 8, 12 };
-
-		int num, sum;
-		Scanner scanner = new Scanner(System.in);
-		num = scanner.nextInt();
-		scanner.close();
-
-		for (int i = 0; i < arr.length; i++) {
-			sum = arr[i];
-			if (sum == num) {
-				System.out.println(arr[i]);
-			} else {
-				for (int j = i + 1; j < arr.length; j++) {
-					sum = sum + arr[j];
-					if (sum == num) {
-						for (int k = i; k <= j; k++) {
-							System.out.println(arr[k]);
-						}
-
-						sum = 0;
-					}
-				}
-			}
-
-		}
-
-		findPairsWhoseSumEqualToGivenNumByLoop(arr, num);
-		findPairsWhoseSumEqualToGivenNumByWhileLoop(arr, num);
-
+		findMissingNumbersFromAnArrayByUsingArrayOnly(arr, range);
+		System.out.println();
+		findMissingNumbersFromAnArrayByUsingSet(arr, range);
 	}
 
-	private static void findPairsWhoseSumEqualToGivenNumByWhileLoop(int[] arr, int num) {
+	private static void findMissingNumbersFromAnArrayByUsingSet(Integer[] arr, int range) {
 		// TODO Auto-generated method stub
-		Arrays.sort(arr);
+		Set<Integer> inSet = new HashSet<Integer>();
+		// Set<Integer> resSet = new HashSet<Integer>();
 
-		List<List<Integer>> pairList = new ArrayList<List<Integer>>();
+		for (int num : arr) {
+			inSet.add(num);
+		}
 
-		int low = 0;
-		int high = arr.length - 1;
+		for (int i = 1; i <= range; i++) {
 
-		while (low < high) {
+			if (!inSet.contains(i)) {
 
-			if (arr[low] + arr[high] == num) {
-				pairList.add(Arrays.asList(arr[low], arr[high]));
-				low++;
-				high--;
-			} else if (arr[low] + arr[high] < num) {
-				low++;
-			} else if (arr[low] + arr[high] > num) {
-				high--;
+				System.out.println("Missing Number is : " + i);
 			}
 		}
 
-		pairList.forEach(System.out::println);
-
 	}
 
-	private static void findPairsWhoseSumEqualToGivenNumByLoop(int[] arr, int num) {
+	private static void findMissingNumbersFromAnArrayByUsingArrayOnly(Integer[] arr, int range) {
 		// TODO Auto-generated method stub
-		List<List<Integer>> pairList = new ArrayList<List<Integer>>();
+		boolean[] resArr = new boolean[range + 1];
 
-		for (int i = 0; i < arr.length; i++) {
+		for (int num : arr) {
 
-			for (int j = i + 1; j < arr.length; j++) {
-
-				if (arr[i] + arr[j] == num) {
-					pairList.add(Arrays.asList(arr[i], arr[j]));
-				}
+			if (num >= 1 && num <= range) {
+				resArr[num] = true;
 			}
 		}
 
-		pairList.forEach(System.out::println);
-	}
+		for (int i = 1; i < resArr.length; i++) {
 
+			if (!resArr[i]) {
+				System.out.println("Missing Number : " + i);
+			}
+		}
+
+	}
 }

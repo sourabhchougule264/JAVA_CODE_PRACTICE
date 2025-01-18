@@ -1,51 +1,24 @@
 package com.practice.patternprinting.questions;
 
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class PatternPrintingPractice {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		List<Integer> arr = Arrays.asList(1,2,3,4,5);
 
-		int n;
-		Scanner scanner = new Scanner(System.in);
-		n = scanner.nextInt();
-		int num = 1;
-		for(int i = 1; i <= n; i++) {
-			
-			//print spaces
-			for(int j = 1; j <= n-i;j++) {
-				System.out.print(" ");
-			}
-			
-			for(int j = i; j >= 1; j--) {
-				System.out.print(j+"");
-			}
-			
-			for(int j = 2; j <= i; j++) {
-				
-				System.out.print(j);
-			}
-			
-		
-			
-			System.out.println();
-		}
-		
-//		for (int i = n; i >= 1; i--) {
-//
-//			// print spaces
-//			for (int j = 1; j <= n - i; j++) {
-//				System.out.print(" ");
-//			}
-//
-//			// print stars
-//			for (int j = 1; j <= i; j++) {
-//				System.out.print("*" + " ");
-//			}
-//
-//			System.out.println();
-//		}
+	    // Write your code here
+	        Collections.sort(arr);
+	        
+	        long min = arr.stream().limit(4).mapToInt(ob -> ob.intValue()).summaryStatistics().getSum();
+	        
+	        long max = arr.stream().skip(arr.size() - 4).mapToInt(ob -> ob.intValue()).summaryStatistics().getSum();
+	        
+	        System.out.println(min);
+	        System.out.println(max);
 	}
 
 }
