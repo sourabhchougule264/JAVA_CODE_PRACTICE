@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RemoveDuplicatesFromArrayList {
 
@@ -17,6 +18,13 @@ public class RemoveDuplicatesFromArrayList {
 		System.out.println(list);
 		removeDuplicatesByUsingLinkedHasSet(list);
 		System.out.println(list);
+		removeDuplicatesByUsingDistinctMethod(list);
+		System.out.println(list);
+	}
+
+	private static void removeDuplicatesByUsingDistinctMethod(List<Integer> list) {
+		// TODO Auto-generated method stub
+		list = list.stream().distinct().collect(Collectors.toList());
 	}
 
 	private static void removeDuplicatesByUsingLinkedHasSet(List<Integer> list) {

@@ -1,55 +1,18 @@
 package com.practice.array.questions;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Arrays;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class ArrayPrecticeClass {
 
 	public static void main(String[] args) {
-		int range = 12;
-		Integer[] arr = { 1, 2, 4, 5, 3, 9, 8, 10, 12, 15, 14 };
 
-		findMissingNumbersFromAnArrayByUsingArrayOnly(arr, range);
-		System.out.println();
-		findMissingNumbersFromAnArrayByUsingSet(arr, range);
-	}
+		int[] arr = { 12, 9, 12, 9, 10, 9, 10, 11 };
 
-	private static void findMissingNumbersFromAnArrayByUsingSet(Integer[] arr, int range) {
-		// TODO Auto-generated method stub
-		Set<Integer> inSet = new HashSet<Integer>();
-		// Set<Integer> resSet = new HashSet<Integer>();
-
-		for (int num : arr) {
-			inSet.add(num);
-		}
-
-		for (int i = 1; i <= range; i++) {
-
-			if (!inSet.contains(i)) {
-
-				System.out.println("Missing Number is : " + i);
-			}
-		}
+		Arrays.stream(arr).boxed().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet()
+				.forEach(entry -> System.out.println(entry.getKey() + " : " + entry.getValue()));
 
 	}
 
-	private static void findMissingNumbersFromAnArrayByUsingArrayOnly(Integer[] arr, int range) {
-		// TODO Auto-generated method stub
-		boolean[] resArr = new boolean[range + 1];
-
-		for (int num : arr) {
-
-			if (num >= 1 && num <= range) {
-				resArr[num] = true;
-			}
-		}
-
-		for (int i = 1; i < resArr.length; i++) {
-
-			if (!resArr[i]) {
-				System.out.println("Missing Number : " + i);
-			}
-		}
-
-	}
 }

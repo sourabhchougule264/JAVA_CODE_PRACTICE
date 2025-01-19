@@ -1,24 +1,33 @@
 package com.practice.patternprinting.questions;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.Scanner;
 
 public class PatternPrintingPractice {
 
 	public static void main(String[] args) {
 		
-		List<Integer> arr = Arrays.asList(1,2,3,4,5);
+		int n;
+		
+		Scanner scanner = new Scanner(System.in);
+		n = scanner.nextInt();
+		scanner.close();
+		
+		printFlyoidsTriangle(n);
+	}
 
-	    // Write your code here
-	        Collections.sort(arr);
-	        
-	        long min = arr.stream().limit(4).mapToInt(ob -> ob.intValue()).summaryStatistics().getSum();
-	        
-	        long max = arr.stream().skip(arr.size() - 4).mapToInt(ob -> ob.intValue()).summaryStatistics().getSum();
-	        
-	        System.out.println(min);
-	        System.out.println(max);
+	private static void printFlyoidsTriangle(int n) {
+		// TODO Auto-generated method stub
+		int count = 1;
+		for (int i = 1; i <= n; i++) {
+
+			// print numbers
+			for (int j = 1; j <= i; j++) {
+				System.out.print(count++ + " ");
+			}
+			
+			System.out.println();
+		}
+		
 	}
 
 }
