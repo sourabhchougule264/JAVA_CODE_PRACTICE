@@ -18,14 +18,20 @@ public class RemoveDuplicateElementsFromAnArray {
 		// TODO Auto-generated method stub
 
 		int[] resultArr = new int[arr.length];
+		boolean isUnique = false;
 
 		for (int i = 0; i < arr.length; i++) {
 
+			isUnique = true;
 			for (int j = i + 1; j < arr.length; j++) {
 
-				if (arr[i] != arr[j]) {
-					
+				if (arr[i] == arr[j]) {
+					isUnique = false;
 				}
+			}
+			
+			if (isUnique) {
+				resultArr[i] = arr[i];
 			}
 		}
 

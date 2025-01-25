@@ -1,8 +1,6 @@
 package com.practice.string.questions;
 
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class SumOfAllDigitsOfNumber {
 
@@ -13,9 +11,8 @@ public class SumOfAllDigitsOfNumber {
 		int sum = 0;
 		Scanner scanner = new Scanner(System.in);
 		n = scanner.nextInt();
-		
+
 		String str = String.valueOf(n);
-		
 
 		System.out.println("The Sum is : " + sumByIteration(n, sum));
 		System.out.println("The Sum is : " + sumByRecursion(n, sum));

@@ -8,13 +8,14 @@ public class AnagramCheckOfTwoStrings {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		// Anagram means both the string holds same characters and same number of characters
 		String str1 = "";
 		String str2 = "";
 		
 		Scanner scanner = new Scanner(System.in);
 		str1 = scanner.nextLine();
 		str2 = scanner.nextLine();
-		
+		scanner.close();		
 		checkAnagramByUsingArraysUtilityMethods(str1,str2);
 		checkAnagramByIterationMethod(str1,str2);
 		

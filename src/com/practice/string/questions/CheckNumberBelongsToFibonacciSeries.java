@@ -19,7 +19,6 @@ public class CheckNumberBelongsToFibonacciSeries {
 		// TODO Auto-generated method stub
 		boolean isBelong = false;
 		for(int i = 0; i <= num+1; i++) {
-			System.out.println(fibonacciSeriesByRecursion(i));
 			if (fibonacciSeriesByRecursion(i) == num) {
 				isBelong = true;
 				break;
